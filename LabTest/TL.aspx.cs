@@ -27,14 +27,14 @@ namespace LabTest
         {
             using (SqlConnection con = new SqlConnection(cs))
             {
-                //con.Open();
-                //SqlCommand cmd = new SqlCommand("Select Ct.CategoryName,Sub.EmployeeName,Ti.Sunday,Ti.Monday,Ti.Tuesday,Ti.Wednesday,Ti.Thursday,Ti.Friday,Ti.Saturday\r\nFrom TimeSpent Ti\r\nJoin Category Ct\r\non Ti.CategoryId=Ct.CategoryId\r\ninner join SubCategory Sub\r\non Ti.SubCategoryId=Sub.SubCategoryId;\r\n\r\n", con);
-                //SqlDataReader dr = cmd.ExecuteReader();
-                //if (dr.HasRows == true)
-                //{
-                //    GridView1.DataSource = dr;
-                //    //GridView1.DataBind();
-                //}
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Select Ct.CategoryName,Sub.EmployeeName,Ti.Sunday,Ti.Monday,Ti.Tuesday,Ti.Wednesday,Ti.Thursday,Ti.Friday,Ti.Saturday\r\nFrom TimeSpent Ti\r\nJoin Category Ct\r\non Ti.CategoryId=Ct.CategoryId\r\ninner join SubCategory Sub\r\non Ti.SubCategoryId=Sub.SubCategoryId;\r\n\r\n", con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows == true)
+                {
+                    //GridView1.DataSource = dr;
+                    GridView1.DataBind();
+                }
             }
         }
 
@@ -79,7 +79,7 @@ namespace LabTest
             using(SqlConnection con=new SqlConnection(cs))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("delete from dbo.TimeSpent Where TimeSpentId='" + id + "'", con);
+                SqlCommand cmd = new SqlCommand("delete from dbo.Category Where CategoryId='" + id + "'", con);
                 int t = cmd.ExecuteNonQuery();
                 if(t > 0)
                 {
@@ -90,6 +90,11 @@ namespace LabTest
                 }
                     
             }
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,6 +33,7 @@
                 <asp:BoundField DataField="Saturday" HeaderText="Saturday" SortExpression="Saturday" />
                 <asp:CommandField ButtonType="Button" ShowDeleteButton="True"></asp:CommandField>
                 <asp:CommandField ButtonType="Button" ShowEditButton="True" />
+
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -45,7 +46,7 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TestLabConnectionString %>" ProviderName="<%$ ConnectionStrings:TestLabConnectionString.ProviderName %>" SelectCommand="Select Ct.CategoryName,Sub.EmployeeName,Ti.Sunday,Ti.Monday,Ti.Tuesday,Ti.Wednesday,Ti.Thursday,Ti.Friday,Ti.Saturday
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TestLabConnectionString %>" SelectCommand="Select Ct.CategoryName,Sub.EmployeeName,Ti.Sunday,Ti.Monday,Ti.Tuesday,Ti.Wednesday,Ti.Thursday,Ti.Friday,Ti.Saturday
 From TimeSpent Ti
 Join Category Ct
 on Ti.CategoryId=Ct.CategoryId
@@ -53,6 +54,41 @@ inner join SubCategory Sub
 on Ti.SubCategoryId=Sub.SubCategoryId;
 
 "></asp:SqlDataSource>
+        <br />
+        <div>
+        <asp:Label ID="Label1" runat="server" Text="CategoryName"></asp:Label>
+            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="CategoryName" DataValueField="CategoryName" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+            </asp:DropDownList>
+        <p>
+            EmployeeName<asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource1" DataTextField="EmployeeName" DataValueField="EmployeeName">
+            </asp:DropDownList>
+        </p>
+        Sunday
+        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <p>
+            Monday<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            Tuesday<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            Wednesday
+            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            Thursday
+            <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            Friday
+            <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            Saturday
+            <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
+            <asp:Button ID="Button1" runat="server" Text="Button" />
+        </p>
+            </div>
     </form>
 </body>
 </html>
