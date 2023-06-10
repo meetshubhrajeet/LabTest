@@ -11,7 +11,7 @@
         <div>
         </div>
         
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowEditing="GridView1_RowEditing" OnRowDeleting="GridView1_RowDeleting">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowEditing="GridView1_RowEditing">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:TemplateField>
@@ -31,9 +31,8 @@
                 <asp:BoundField DataField="Thursday" HeaderText="Thursday" SortExpression="Thursday" />
                 <asp:BoundField DataField="Friday" HeaderText="Friday" SortExpression="Friday" />
                 <asp:BoundField DataField="Saturday" HeaderText="Saturday" SortExpression="Saturday" />
-                <asp:CommandField ButtonType="Button" ShowDeleteButton="True">
-                <ControlStyle BorderColor="Red" />
-                </asp:CommandField>
+                <asp:CommandField ButtonType="Button" ShowDeleteButton="True"></asp:CommandField>
+                <asp:CommandField ButtonType="Button" ShowEditButton="True" />
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
